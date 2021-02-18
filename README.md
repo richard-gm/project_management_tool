@@ -1,2 +1,2 @@
-# Project management tool app
+# Project management app
 
