@@ -14,11 +14,6 @@ def profile():
     return render_template('profile.html')
 
 
-@main.route('/base')
-def base():
-    return 'base'
-
-
-@main.route('/page2')
-def page2():
-    return 'page2'
+@main.route('/admin')
+def admin():
+    return render_template('admin.html')
