@@ -1,16 +1,15 @@
 from flask import Flask
-from flask_sqlalchemy import SQLAlchemy
 
+from .extensions import mongoDB
 # init SQLAlchemy so we can use it later in our models
-db = SQLAlchemy()
 
-def create_app():
+
+def create_app(config_object='src.settings'):
     app = Flask(__name__)
 
-    app.config['SECRET_KEY'] = 'secret-key-goes-here'
-    app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///db.sqlite'
+    app.config.from_object(config_object)
 
-    db.init_app(app)
+    mongoDB.init_app(app)
 
     # blueprint for auth routes in our app
     from .auth import auth as auth_blueprint

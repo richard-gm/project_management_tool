@@ -1,1 +1,3 @@
-/envFlask
+/flaskEnv
+.env
+.flaskEnv

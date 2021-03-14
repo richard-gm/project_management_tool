@@ -1,5 +1,5 @@
 from flask import Blueprint, render_template
-from . import db
+from .extensions import mongoDB
 
 main = Blueprint('main', __name__)
 
@@ -17,3 +17,10 @@ def profile():
 @main.route('/admin')
 def admin():
     return render_template('admin.html')
+
+
+@main.route("/test")
+def test():
+    user_collection = mongoDB.db["cloudApp"]
+    user_collection.insert({'name': 'Richard'})
+    return '<H1>Connected to the data base!</H1>'
