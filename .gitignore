@@ -1,3 +1,5 @@
-/flaskEnv
-.env
-.flaskEnv
+__pycache__/
+*.pyc
+venv/
+/.idea
+.DS_store
